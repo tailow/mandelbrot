@@ -324,6 +324,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 5c3967c4816e45742bd5a3c316ab4e79, type: 2}
+  speed: 2
+  startDepth: 1.15
+  endDepth: 0.35
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

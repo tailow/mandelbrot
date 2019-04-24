@@ -5,7 +5,7 @@
 		_PositionX ("Position X", Range(-2, 2)) = 0
 		_PositionY ("Position Y", Range(-2, 2)) = 0
 		
-		_Zoom ("Zoom", Range(0.005, 2)) = 2
+		_Zoom ("Zoom", Range(0.001, 1.15)) = 1
 
 		_Iterations ("Number of iterations", Int) = 1
 
@@ -46,13 +46,15 @@
 			{
 				float2 z = 0;
 
-				c.x = 1.3333 * (c.x - 0.5) * _Zoom * _Zoom + _PositionX;
-				c.y = (c.y - 0.5) * _Zoom * _Zoom + _PositionY;
+				c.x = 1.3333 * (c.x - 0.5) * pow(_Zoom, 10) + _PositionX;
+				c.y = (c.y - 0.5) * pow(_Zoom, 10) + _PositionY;
 
 				float2 zNext;
 
+				int iterations = _Iterations / pow(_Zoom, 4);
+
 				int i;
-				for (i = 0; i < _Iterations / _Zoom; i++)
+				for (i = 0; i < iterations; i++)
 				{
 					zNext.x = z.x * z.x - z.y * z.y + c.x;
 					zNext.y = 2 * z.x * z.y + c.y;
@@ -65,7 +67,7 @@
 					}
 				}
 
-				return i / float(_Iterations / _Zoom);
+				return i / float(iterations);
 			}
 
             v2f vert (appdata v)
