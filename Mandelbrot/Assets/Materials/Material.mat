@@ -85,7 +85,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _Zoom: 1.0540369
+    - _Zoom: 0.7755825
     - _ZoomAmount: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
