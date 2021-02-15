@@ -44,6 +44,8 @@
 
 			float mandelbrot(float2 c)
 			{
+				_Iterations /= pow(_Zoom, 2.5);
+
 				float2 z = 0;
 
 				c.x = 1.3333 * (c.x - 0.5) * pow(_Zoom, 10) + _PositionX;
@@ -51,10 +53,8 @@
 
 				float2 zNext;
 
-				int iterations = _Iterations / pow(_Zoom, 4);
-
 				int i;
-				for (i = 0; i < iterations; i++)
+				for (i = 0; i < _Iterations; i++)
 				{
 					zNext.x = z.x * z.x - z.y * z.y + c.x;
 					zNext.y = 2 * z.x * z.y + c.y;
@@ -67,7 +67,7 @@
 					}
 				}
 
-				return i / float(iterations);
+				return i / float(_Iterations);
 			}
 
             v2f vert (appdata v)

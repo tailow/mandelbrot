@@ -18,6 +18,6 @@ public class ImageEffectScript : MonoBehaviour
 
     void Update()
     {
-        material.SetFloat("_Zoom", (startDepth - endDepth) / 2 * (Mathf.Sin(Time.time * speed / 10)) + (startDepth + endDepth) / 2);
+        //material.SetFloat("_Zoom", (startDepth - endDepth) / 2 * (Mathf.Sin(Time.time * speed / 10)) + (startDepth + endDepth) / 2);
     }
 }
